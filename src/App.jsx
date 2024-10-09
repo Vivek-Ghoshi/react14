@@ -1,19 +1,27 @@
-import React from 'react';
-import Home from './components/Home';
-import Nav from './components/Nav';
-import Footer from './components/Footer';
+import { useState } from "react";
 
-
-function App() {
-
-  let data = "Hello Vivek Bhai"
+const App = () => {
+  const [name, setname] = useState("");
+  const changeHandler = (e) => {
+    e.preventDefault();
+    console.log(e.target.value);
+  };
+  const submitHandler = (e) => {
+    e.preventDefault();
+    console.log(e.target.value);
+  };
   return (
     <div>
-     
-     <h1>{data}</h1>
-      
+      <form onSubmit={submitHandler}>
+        <input
+          onChange={changeHandler}
+          type="text"
+          placeholder="name"
+          value={name}
+        />
+      </form>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
